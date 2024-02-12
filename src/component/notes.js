@@ -1,6 +1,15 @@
+import axios from "axios";
 import AddNote from "./addNote";
 
 const Notes = () => {
+    const deleteTodoHandler=async()=>{
+        try {
+            const response = await axios.post("http://localhost:4000/deletetodo?delId=4");
+            console.log(response);
+          } catch (err) {
+            console.log(err);
+          }
+    }
   return (
     <div className="container-fluid bg-warning">
       <div className="container text-center p-2">
