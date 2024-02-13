@@ -23,7 +23,7 @@ function App() {
     todoFetcher();
   }, []);
   return (
-    <div className="App"  style={{background:"#008B8B",height:"100vh"}}>
+    <div className="App"  style={{background:"#008B8B",minHeight:"100vh"}}>
       <Header />
       <Notes />
     </div>

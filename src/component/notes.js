@@ -19,25 +19,28 @@ const Notes = () => {
   };
   return (
     <div className="container-fluid ">
-      <div className="container text-center p-2">
-        <div className="mt-2  text-white">
+      <div className="container text-center p-2 " style={{marginTop:"50px"}}>
+        <div className="my-3  text-white" >
           <AddNote></AddNote>
         </div>
       </div>
       <div
-        style={{ display: "flex", flexWrap: "wrap", alignItems: "flex-start" }}
+        style={{ display: "flex ", flexWrap: "wrap", alignItems: "flex-start" }}
       >
         {todoList.map((current) => {
           return (
+
+            
             <div
               key={current.id}
               className="p-2"
               style={{
                 background: "	#FDF5E6",
-                width: "300px",
+                width: "270px",
                 margin: "10px",
                 height: "auto",
                 borderRadius: "5px",
+                
               }}
             >
               <h4>{current.title}</h4>
