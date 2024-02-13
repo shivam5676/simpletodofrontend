@@ -10,8 +10,10 @@ const todoSlice=createSlice({
             state.AllTodo=[...state.AllTodo,action.payload]
         },
         deleteTodo(state,action){
-            const findItem=state.AllTodo.filter((current)=>current.id!=action.payload.id)
-            console.log(findItem)
+            console.log(action.payload)
+            const itemAfterRemoval=state.AllTodo.filter((current)=>current.id!=action.payload)
+            console.log(itemAfterRemoval)
+            state.AllTodo=itemAfterRemoval
         }
     }
 })

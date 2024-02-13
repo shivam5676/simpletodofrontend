@@ -7,8 +7,7 @@ import { todoSliceActions } from "./store/todo";
 
 function App() {
   const dispatch=useDispatch()
-  const currentstate=useSelector((state)=>state.todo.AllTodo)
-  console.log(currentstate)
+ 
   useEffect(() => {
     async function todoFetcher() {
       try {
@@ -24,7 +23,7 @@ function App() {
     todoFetcher();
   }, []);
   return (
-    <div className="App">
+    <div className="App"  style={{background:"#008B8B",height:"100vh"}}>
       <Header />
       <Notes />
     </div>
