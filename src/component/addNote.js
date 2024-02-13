@@ -6,27 +6,29 @@ import { todoSliceActions } from "../store/todo";
 const AddNote = () => {
   const titleref = useRef("");
   const inputref = useRef("");
-  const dispatch=useDispatch()
+  const dispatch = useDispatch();
   const saveTodoHandler = async () => {
-    console.log(titleref.current.value, inputref.current.value);
-    const title=titleref.current.value
-    const inputdata=inputref.current.value
-    if(title.length==0||inputdata.length==0){
-      alert("not saved.....title and data field can not be empty")
+   
+    const title = titleref.current.value;
+    const inputdata = inputref.current.value;
+    if (title.length == 0 || inputdata.length == 0) {
+      alert("not saved.....title and data field can not be empty");
       return;
     }
     const data = {
       title: title,
-      data:inputdata ,
+      data: inputdata,
     };
     try {
-      const response = await axios.post("http://localhost:4000/addtodo", { ...data });
-    
-      dispatch(todoSliceActions.addTodo(response.data))
-      alert("data saved successfully")
+      const response = await axios.post("http://localhost:4000/addtodo", {
+        ...data,
+      });
+
+      dispatch(todoSliceActions.addTodo(response.data));
+      alert("data saved successfully");
     } catch (err) {
       console.log(err);
-      alert("something went wrong")
+      alert("something went wrong");
     }
   };
   return (
@@ -36,7 +38,7 @@ const AddNote = () => {
         className="btn text-dark text-start p-3"
         data-bs-toggle="modal"
         data-bs-target="#exampleModal"
-        style={{background:"	#FDF5E6",width:"250px"}}
+        style={{ background: "	#FDF5E6", width: "250px" }}
       >
         take a note...
       </button>{" "}
@@ -62,8 +64,11 @@ const AddNote = () => {
             </div>
             <div className="modal-body">
               <div className="mb-3">
-                <label htmlFor="exampleFormControlInput1" className="form-label">
-                   Title
+                <label
+                  htmlFor="exampleFormControlInput1"
+                  className="form-label"
+                >
+                  Title
                 </label>
                 <input
                   type="email"
@@ -71,11 +76,13 @@ const AddNote = () => {
                   id="exampleFormControlInput1"
                   placeholder="name@example.com"
                   ref={titleref}
-                  
                 />
               </div>
               <div className="mb-3">
-                <label htmlFor="exampleFormControlTextarea1 fw-5" className="form-label">
+                <label
+                  htmlFor="exampleFormControlTextarea1 fw-5"
+                  className="form-label"
+                >
                   Notes
                 </label>
                 <textarea
